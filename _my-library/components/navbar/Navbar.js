@@ -16,14 +16,14 @@ export default function Navbar() {
           MyApp
         </Link>
 
-        {/* Desktop Menu */}
-        <ul className={styles.menu}>
-          <li><Link href="/" className={styles.link}>Home</Link></li>
-          <li><Link href="/about" className={styles.link}>About</Link></li>
-          <li><Link href="/contact" className={styles.link}>Contact</Link></li>
+        {/* Single Menu — works for both desktop and mobile */}
+        <ul className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
+          <li><Link href="/" className={styles.link} onClick={() => setIsOpen(false)}>Home</Link></li>
+          <li><Link href="/about" className={styles.link} onClick={() => setIsOpen(false)}>About</Link></li>
+          <li><Link href="/contact" className={styles.link} onClick={() => setIsOpen(false)}>Contact</Link></li>
         </ul>
 
-        {/* Hamburger */}
+        {/* Hamburger — only visible on mobile */}
         <button
           className={styles.hamburger}
           onClick={() => setIsOpen(!isOpen)}
@@ -33,22 +33,6 @@ export default function Navbar() {
         </button>
 
       </div>
-
-      {/* Mobile Menu — toggle open class */}
-      <ul className={`${styles.mobileMenu} ${isOpen ? styles.open : ""}`}>
-        <li>
-          <Link href="/" className={styles.mobileLink}
-            onClick={() => setIsOpen(false)}>Home</Link>
-        </li>
-        <li>
-          <Link href="/about" className={styles.mobileLink}
-            onClick={() => setIsOpen(false)}>About</Link>
-        </li>
-        <li>
-          <Link href="/contact" className={styles.mobileLink}
-            onClick={() => setIsOpen(false)}>Contact</Link>
-        </li>
-      </ul>
     </nav>
   );
 }

@@ -13,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -22,8 +23,10 @@
   text-decoration: none;
 }
 
+/* ── Single menu — desktop layout by default ── */
 .menu {
-  display: flex;
+  display: flex;          /* horizontal on desktop */
+  flex-direction: row;
   list-style: none;
   gap: 24px;
   margin: 0;
@@ -34,12 +37,15 @@
   color: #ffffff;
   text-decoration: none;
   font-size: 15px;
+  display: block;
+  padding: 4px 0;
 }
 
 .link:hover {
   color: #e94560;
 }
 
+/* ── Hamburger — hidden on desktop ── */
 .hamburger {
   display: none;
   background: none;
@@ -50,39 +56,39 @@
   padding: 4px 8px;
 }
 
-/* Mobile menu — hidden by default */
-.mobileMenu {
-  display: none;
-  list-style: none;
-  padding: 8px 0;
-  margin: 0;
-  background-color: #16213e;
-}
-
-/* ✅ Fix: use .open directly as a separate class */
-.open {
-  display: block;
-}
-
-.mobileLink {
-  display: block;
-  padding: 12px 20px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 15px;
-  border-bottom: 1px solid #ffffff10;
-}
-
-.mobileLink:hover {
-  background-color: #e9456015;
-  color: #e94560;
-}
-
+/* ── Mobile breakpoint ── */
 @media (max-width: 768px) {
-  .menu {
-    display: none;
-  }
+
+  /* Show hamburger */
   .hamburger {
     display: block;
+  }
+
+  /* Hide menu by default on mobile */
+  .menu {
+    display: none;
+    flex-direction: column;   /* vertical on mobile */
+    width: 100%;
+    background-color: #16213e;
+    padding: 8px 0;
+    gap: 0;
+  }
+
+  /* Show menu when open class is added */
+  .open {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: flex;
+  }
+
+  .link {
+    padding: 12px 20px;
+    border-bottom: 1px solid #ffffff10;
+  }
+
+  .link:hover {
+    background-color: #e9456015;
+    color: #e94560;
   }
 }

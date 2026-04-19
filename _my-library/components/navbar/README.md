@@ -1,29 +1,25 @@
 # Component: Navbar
 
 ## What it does
-Sticky responsive navbar with mobile hamburger toggle.
-Works with Next.js App Router.
+Sticky responsive navbar with mobile hamburger toggle using CSS media queries.
 
-## Features
-- Sticky top position (z-index: 999)
-- Mobile hamburger menu toggle
-- Active link closes mobile menu
-- Easy to customize links and colors
+## Fix applied
+- Inline styles cannot handle media queries
+- Moved to external CSS file (Navbar.css)
+- Hamburger now shows on screens under 768px
+- Mobile menu toggles with .open class
 
-## How to use
-```jsx
-import Navbar from "@/components/Navbar";
-// Add inside layout.js
-```
+## Files
+- Navbar.js  — component logic
+- Navbar.css — responsive styles
 
-## Colors used
-- Background: #1a1a2e
-- Logo: #e94560
-- Links: #ffffff
+## Breakpoint
+- Mobile: max-width 768px → shows hamburger
+- Desktop: min-width 769px → shows horizontal menu
 
 ## Reference links
-- https://nextjs.org/docs/app/building-your-application/routing
-- https://developer.mozilla.org/en-US/docs/Web/CSS/position#sticky
+- https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries
+- https://nextjs.org/docs/app/building-your-application/styling/css
 
 ## Date saved
 2024-06-01
